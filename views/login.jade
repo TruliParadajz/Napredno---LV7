@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1.
+    #{title}
+  form#formLogin(name="login",method="post",action="/login")
+    p Email:
+      input#inputEmail(type="text", placeholder="email", name="email")
+    p Sifra:
+      input#inputSifra(type="text", name="sifra")
+    p
+      button#btnSubmit(type="submit") Login

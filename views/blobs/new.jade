@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddBlob(name="addblob",method="post",action="/blobs")
+		p Naziv:
+			input#inputName(type="text", placeholder="Naziv", name="naziv")
+		p Opis:
+			input#inputBadge(type="text", placeholder="Opis", name="opis")
+		p Cijena:
+			input#inputDob(type="number", name="cijena")
+		p Datum pocetka:
+			input#inputDatumPocetka(type='date', name='datumPocetka' )
+		P Datum zavrsetka:
+			input#inputDatumZavrsetka(type='date', name='datumZavrsetka')
+		p Obavljeni poslovi?:
+			input#inputIsLoved(type="checkbox", name="obavljeniPoslovi")
+
+		p Clanovi:
+			select(multiple, name="clanovi")
+				each item in users
+					option(value='#{item.email}')=item.email
+
+
+		p
+			button#btnSubmit(type="submit") submit

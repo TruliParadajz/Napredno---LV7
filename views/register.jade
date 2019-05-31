@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1.
+    #{title}
+  form#formLogin(name="login",method="post",action="/register")
+    p Email:
+      input#inputEmail(type="text", placeholder="email", name="email")
+    p Sifra:
+      input#inputSifra(type="text", name="sifra")
+    p Ime:
+      input#inputIme(type="text", name="ime")
+    p
+      button#btnSubmit(type="submit") Register

@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    ul
+        - each blob, i in blobs
+            li    Naziv: #{blob.naziv}
+            li    Opis: #{blob.opis}
+            li    Cijena: #{blob.cijena}
+            li    Datum Pocetka: #{blob.datumPocetka}
+            li    Datum zavrsetka: #{blob.datumZavrsetka}
+            li    Clanovi: #{blob.clanovi}
+            li    Obavljeni poslovi: #{blob.obavljeniPoslovi}
+            li    Id: #{blob._id}
+                form(action='/blobs/#{blob._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/blobs/#{blob._id}/edit') Edit |
+                    a(href='/blobs/#{blob._id}') Show
+
